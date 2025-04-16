@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import { AuthProvider } from "@/context/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   weight: ["100", "400", "600", "700"],
@@ -22,15 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} antialiased flex flex-col min-h-screen`}
+        className={`${roboto.className} antialiased flex flex-col`}
       >
-        <div className="flex flex-col justify-between min-h-screen">
-          <NavBar />
-
-          <main className="flex-grow px-4">{children}</main>
-
-          <Footer />
-        </div>
+        <Toaster position="top-center" reverseOrder={false}/>
+        <AuthProvider>
+          
+            {children}
+          
+        </AuthProvider>
       </body>
     </html>
   );

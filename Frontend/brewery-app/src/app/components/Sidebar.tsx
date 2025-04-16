@@ -2,8 +2,19 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Sidebar({ onClose }: { onClose: () => void }) {
+  
+  const {token, setToken} = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setToken(null); // Borra token del context y localStorage
+    router.push("/login");
+  };
+  
   return (
     <motion.div
       className="fixed inset-0 bg-opacity-50 z-50 flex"
@@ -30,8 +41,8 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
           <li>
             <button
               onClick={() => {
+                handleLogout()
                 onClose();
-                console.log("Logout...");
               }}
               className="hover:underline"
             >

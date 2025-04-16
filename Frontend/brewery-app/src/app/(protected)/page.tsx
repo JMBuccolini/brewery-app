@@ -1,7 +1,7 @@
 import resultsBrewery from "@/@mockapi/brews.json";
 
-import BreweryCard from "./components/BreweryCard";
-import Snackbar from "./components/Snackbar";
+import BreweryCard from "../components/BreweryCard";
+import Snackbar from "../components/Snackbar";
 
 export default function Home() {
   const breweries = resultsBrewery?.length > 0;

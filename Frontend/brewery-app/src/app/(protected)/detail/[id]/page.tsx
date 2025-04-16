@@ -1,7 +1,7 @@
 // src/app/detail/[id]/page.tsx
 import { notFound } from "next/navigation";
-import LocationIcon from "../../../../public/icons/location-icon";
-import PhoneIcon from "../../../../public/icons/phone-icon";
+import LocationIcon from "../../../../../public/icons/location-icon";
+import PhoneIcon from "../../../../../public/icons/phone-icon";
 import UserReview from "@/app/components/UserReview";
 
 interface Brewery {
