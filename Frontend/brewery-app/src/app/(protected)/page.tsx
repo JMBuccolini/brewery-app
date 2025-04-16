@@ -1,5 +1,5 @@
 import resultsBrewery from "@/@mockapi/brews.json";
-
+import BreweryCarousel from "../components/BreweryCarousel";
 import BreweryCard from "../components/BreweryCard";
 import Snackbar from "../components/Snackbar";
 
@@ -22,10 +22,14 @@ export default function Home() {
             Todas las opciones
           </h2>
           <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar">
-            {breweries &&
-              resultsBrewery.map((data) => (
+            <div className="block sm:hidden">
+              {resultsBrewery.map((data) => (
                 <BreweryCard data={data} key={data.id} />
               ))}
+            </div>
+          <div className="hidden sm:block">
+            <BreweryCarousel data={resultsBrewery} />
+          </div>
           </div>
         </section>
         <section className="container px-3 mx-auto pb-6">

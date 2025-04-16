@@ -7,16 +7,19 @@ interface AuthContextProps {
   token: string | null;
   setToken: (token: string | null) => void;
   isAuthenticated: boolean;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextProps>({
   token: null,
   setToken: () => {},
   isAuthenticated: false,
+  loading:true
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setTokenState] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   const setToken = (token: string | null) => {
@@ -31,11 +34,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) setTokenState(storedToken);
+    setLoading(false);
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ token, setToken, isAuthenticated: !!token }}
+      value={{ token, setToken, isAuthenticated: !!token, loading }}
     >
       {children}
     </AuthContext.Provider>

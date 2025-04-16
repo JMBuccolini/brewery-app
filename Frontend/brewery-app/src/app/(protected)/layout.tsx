@@ -11,16 +11,16 @@ export default function ProtectedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!loading && !isAuthenticated) {
       router.push("/login");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, loading]);
 
-  if (!isAuthenticated) return null;
+  if (loading || !isAuthenticated) return null; // o un loader si querés
 
   return (
     <div className="min-h-screen flex flex-col justify-between">

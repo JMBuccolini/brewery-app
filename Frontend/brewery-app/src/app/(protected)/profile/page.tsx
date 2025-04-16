@@ -21,8 +21,7 @@ export default function ProfilePage() {
   const [nameInput, setNameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [saving, setSaving] = useState(false);
-  const [formError, setFormError] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
+
 
   useEffect(() => {
     if (!token) return;
@@ -98,18 +97,17 @@ export default function ProfilePage() {
             onSubmit={async (e) => {
               e.preventDefault();
               setSaving(true);
-              setSuccessMsg("");
 
               // ✅ No hay cambios: no hacer request
               if (nameInput === user.name && passwordInput === "") {
                 setEditMode(false);
-                setSuccessMsg("No se detectaron cambios");
+                toast.success("No se detectaron cambios");
                 setSaving(false);
                 return;
               }
 
               if (nameInput.trim() === "") {
-                setFormError("El nombre no puede estar vacío");
+                toast.error('El nombre no puede estar vacío');
                 setSaving(false);
                 return;
               }
@@ -134,7 +132,7 @@ export default function ProfilePage() {
                 toast.success('Perfil actualizado correctamente');
                 setEditMode(false);
               } catch (err) {
-                alert("Hubo un error al guardar los cambios");
+                toast.error('Hubo un error al guardar los cambios');
               } finally {
                 setSaving(false);
               }
@@ -167,8 +165,6 @@ export default function ProfilePage() {
                 setEditMode(false);
                 setNameInput(user.name);
                 setPasswordInput("");
-                setFormError("");
-                setSuccessMsg("");
               }}
               className="border border-gray-500 text-white rounded-[8px] py-2 hover:bg-white/10"
             >

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useBreweryComments } from "@/hooks/useBreweryComments";
+import toast from "react-hot-toast";
 import DetailBtn from "./DetailBtn";
 import TransportBtn from "./TransportBtn";
 
@@ -28,9 +29,11 @@ export default function UserReview({id} : {id:string}) {
               />
               <p className="text-[16px] font-bold">{user.name}</p>
             </div>
-            <p className="text-[12px] text-[#E41AD6] cursor-pointer hover:underline">
+            <button 
+            onClick={()=> toast.error('Esta función solo esta disponible para el Admin')}
+            className="text-[12px] text-[#E41AD6] cursor-pointer hover:underline">
               Responder
-            </p>
+            </button>
           </div>
           <p className="text-sm text-white leading-relaxed">{user.comment}</p>
         </motion.div>
