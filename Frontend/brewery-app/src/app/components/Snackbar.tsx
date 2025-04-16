@@ -4,7 +4,7 @@ import AlertIcon from "../../../public/icons/alert-icon";
 export default function Snackbar() {
   return (
     <div
-      className="bg-[#FEEBCB] py-[16px] px-3 text-black flex gap-3 align-items-center"
+      className="bg-[#FEEBCB] py-[16px] px-3 text-black flex gap-3 align-items-center sm:min-w-[320px]"
       style={{ borderLeft: "4px solid #DD6B20" }}
     >
       <span className=" flex justify-center items-center">

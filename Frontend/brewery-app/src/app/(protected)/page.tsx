@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <header className="w-full">
+      <header className="w-full sm:flex justify-center">
         <Snackbar />
       </header>
 
@@ -24,7 +24,7 @@ export default function Home() {
           <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar">
             <div className="block sm:hidden">
               {resultsBrewery.map((data) => (
-                <BreweryCard data={data} key={data.id} />
+                <BreweryCard data={data} key={data.id} hoverShadow={false} />
               ))}
             </div>
           <div className="hidden sm:block">
@@ -34,10 +34,10 @@ export default function Home() {
         </section>
         <section className="container px-3 mx-auto pb-6">
           <h2 className="text-[32px] font-bold pb-8">Opciones en California</h2>
-          <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar">
+          <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar ml-14">
             {breweries &&
               onlyCalifornia.map((data) => (
-                <BreweryCard data={data} key={data.id} />
+                <BreweryCard data={data} key={data.id} hoverShadow={true}/>
               ))}
           </div>
         </section>

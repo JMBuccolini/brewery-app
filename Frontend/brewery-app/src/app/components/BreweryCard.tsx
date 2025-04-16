@@ -6,11 +6,11 @@ import CardBtn from "./CardBtn";
 
 
 
-export default function BreweryCard({data} : {data:Brewery}){
+export default function BreweryCard({data, hoverShadow} : {data:Brewery, hoverShadow:boolean}){
 
    return(
     <div
-    className="inline-block bg-[#13132D] px-4 py-4 rounded-[8px] min-w-[328px] mr-4 shrink-0"
+    className={`inline-block bg-[#13132D] px-4 py-4 rounded-[8px] min-w-[328px] mr-4 shrink-0 ${hoverShadow ? 'hover:shadow-lg shadow-cyan-500/50 transition-all duration-300 ease-in-out' : ''} `}
   >
     <h2 className="text-[20px] font-bold pb-4">{data.name}</h2>
     <div className="flex justify-center items-center gap-x-2 pb-4">
@@ -23,7 +23,7 @@ export default function BreweryCard({data} : {data:Brewery}){
       <div className="flex flex-col gap-y-2 justify-center">
         <p className="flex gap-x-1">
           <LocationIcon width="24" height="24" />
-          <span>
+          <span className='text-wrap'>
             {data.address_1 === null
               ? "Havre 73, Juarez, Cuauhtemoc"
               : data.address_1}

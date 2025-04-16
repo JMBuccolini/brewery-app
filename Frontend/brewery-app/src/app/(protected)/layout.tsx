@@ -23,9 +23,10 @@ export default function ProtectedLayout({
   if (loading || !isAuthenticated) return null; // o un loader si querés
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between sm:justify-start">
       <NavBar />
-      {children} <Footer />
+      {children} 
+      <Footer />
     </div>
   );
 }

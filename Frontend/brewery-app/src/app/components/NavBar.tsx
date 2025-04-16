@@ -25,7 +25,9 @@ export default function NavBar() {
               <BackIcon />
             </Link>
           ) : (
-            <button onClick={() => setShowSidebar(true)}>
+            <button 
+            className="cursor-pointer"
+            onClick={() => setShowSidebar(true)}>
               <MenuIcon />
             </button>
           )}

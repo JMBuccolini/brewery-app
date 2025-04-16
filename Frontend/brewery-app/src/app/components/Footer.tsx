@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-baseline container px-6">
+    <footer className="flex justify-between items-baseline sm:hidden container px-6">
       <div className="flex flex-col justify-center items-center ">
         <CalendarIcon />
         <p className="text-[12px]">Calendario</p>

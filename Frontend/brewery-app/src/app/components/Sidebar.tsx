@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
+import LogoutIcon from "../../../public/icons/svgIcons/logoutIcon";
+import SidebarHomeIcon from "../../../public/icons/svgIcons/sidebarHomeIcon";
+import SidebarProfileIcon from "../../../public/icons/svgIcons/sidebarProfileIcon";
+
+
 export default function Sidebar({ onClose }: { onClose: () => void }) {
   
   const {token, setToken} = useAuth();
@@ -29,28 +34,32 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
         exit={{ x: -240 }}
         transition={{ type: "tween", duration: 0.3 }}
       >
-        <button onClick={onClose} className="text-white text-right w-full mb-6">
+        <button onClick={onClose} className="text-white text-right w-full mb-6 cursor-pointer">
           ✖
         </button>
         <ul className="flex flex-col gap-y-4 text-white pl-6">
           <li>
-            <Link href="/profile" onClick={onClose} className="hover:underline">
+            <Link href="/profile" onClick={onClose} className="hover:underline flex items-center gap-x-3">
+            <SidebarProfileIcon/>
               Ir a Perfil
             </Link>
           </li>
           <li>
+            
             <button
               onClick={() => {
                 handleLogout()
                 onClose();
               }}
-              className="hover:underline"
+              className="hover:underline flex items-center gap-x-3"
             >
+              <LogoutIcon/>
               Logout
             </button>
           </li>
           <li>
-            <Link href="/" onClick={onClose} className="hover:underline">
+            <Link href="/" onClick={onClose} className="hover:underline flex items-center gap-x-3">
+            <SidebarHomeIcon/>
               Ir a Home
             </Link>
           </li>

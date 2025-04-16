@@ -5,6 +5,8 @@ import { useMemo, useState } from 'react';
 import 'keen-slider/keen-slider.min.css';
 import BreweryCard from './BreweryCard';
 import { Brewery } from '../types/brewery';
+import LeftArrow from '../../../public/icons/svgIcons/leftArrow';
+import RightArrow from '../../../public/icons/svgIcons/rightArrow';
 
 interface Props {
   data: Brewery[];
@@ -42,13 +44,13 @@ export default function BreweryCarousel({ data }: Props) {
           onClick={() => instanceRef.current?.prev()}
           className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full"
         >
-          ←
+          <LeftArrow/>
         </button>
         <button
           onClick={() => instanceRef.current?.next()}
           className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full"
         >
-          →
+          <RightArrow/>
         </button>
       </div>
 
@@ -56,12 +58,12 @@ export default function BreweryCarousel({ data }: Props) {
       <div ref={sliderRef} className="keen-slider">
         {pages.map((group, pageIndex) => (
           <div
-            className="keen-slider__slide"
+            className="keen-slider__slide flex py-4 px-14"
             key={`page-${pageIndex}`}
           >
-            <div className="flex justify-center">
+            <div className="flex justify-center align-items-center">
               {group.map((brewery) => (
-                <BreweryCard data={brewery} key={brewery.id} />
+                <BreweryCard data={brewery} key={brewery.id} hoverShadow={false}/>
               ))}
             </div>
           </div>
@@ -74,7 +76,7 @@ export default function BreweryCarousel({ data }: Props) {
           <button
             key={i}
             onClick={() => instanceRef.current?.moveToIdx(i)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`w-3 h-3 cursor-pointer rounded-full transition-all ${
               currentPage === i ? 'bg-[#E41AD6]' : 'bg-gray-500/30'
             }`}
           />

@@ -66,7 +66,7 @@ export default function ProfilePage() {
     );
 
   return (
-    <div className="text-white -mt-44">
+    <div className="text-white -mt-44 container px-6 mx-auto max-w-[450px] sm:mt-24">
       <h1 className="text-2xl font-bold mb-6 text-center">Mi Perfil</h1>
 
       <div className="flex flex-col items-center mb-6">
@@ -84,11 +84,11 @@ export default function ProfilePage() {
         <p className="text-sm text-gray-400">{user.email}</p>
       </div>
 
-      <div className="flex flex-col gap-y-4 px-6">
+      <div className="flex flex-col gap-y-4 px-4">
         {!editMode ? (
           <button
             onClick={() => setEditMode(true)}
-            className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] rounded-[8px] text-white py-2"
+            className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] rounded-[8px] text-white py-2 cursor-pointer"
           >
             Editar perfil
           </button>
@@ -155,7 +155,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={saving}
-              className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] rounded-[8px] text-white py-2"
+              className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] rounded-[8px] text-white py-2 cursor-pointer"
             >
               {saving ? "Guardando..." : "Guardar cambios"}
             </button>
@@ -166,7 +166,7 @@ export default function ProfilePage() {
                 setNameInput(user.name);
                 setPasswordInput("");
               }}
-              className="border border-gray-500 text-white rounded-[8px] py-2 hover:bg-white/10"
+              className="border border-gray-500 text-white rounded-[8px] py-2 cursor-pointer hover:bg-white/10"
             >
               Cancelar
             </button>
@@ -175,7 +175,7 @@ export default function ProfilePage() {
 
         <button
           onClick={handleLogout}
-          className="border border-[#E41AD6] rounded-[8px] text-white py-2 hover:bg-[#E41AD6]/10"
+          className="border border-[#E41AD6] rounded-[8px] text-white py-2 cursor-pointer hover:bg-[#E41AD6]/10"
         >
           Cerrar sesión
         </button>
