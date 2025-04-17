@@ -7,7 +7,7 @@ import DetailBtn from "./DetailBtn";
 import TransportBtn from "./TransportBtn";
 
 export default function UserReview({id} : {id:string}) {
-      console.log('id: ',id)
+
     const comments = useBreweryComments(id);
     
   return (

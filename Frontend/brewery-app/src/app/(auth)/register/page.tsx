@@ -94,7 +94,7 @@ export default function RegisterPage() {
     className="text-white"
   >
     <div className="min-h-screen flex flex-col justify-center">
-      <div className="text-white container mx-auto px-8">
+      <div className="text-white container mx-auto px-8 sm:max-w-[400px]">
         <h1 className="text-2xl font-bold mb-4">Crear cuenta</h1>
 
         <form onSubmit={handleRegister} className="flex flex-col gap-y-4">

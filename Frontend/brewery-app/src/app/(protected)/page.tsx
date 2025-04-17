@@ -34,7 +34,7 @@ export default function Home() {
         </section>
         <section className="container px-3 mx-auto pb-6">
           <h2 className="text-[32px] font-bold pb-8">Opciones en California</h2>
-          <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar ml-14">
+          <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar sm:ml-14">
             {breweries &&
               onlyCalifornia.map((data) => (
                 <BreweryCard data={data} key={data.id} hoverShadow={true}/>

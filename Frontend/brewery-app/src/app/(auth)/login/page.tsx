@@ -71,8 +71,8 @@ export default function LoginPage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="text-white"
     >
-      <div className="min-h-screen flex flex-col justify-center">
-        <div className="text-white container mx-auto px-8">
+      <div className="min-h-screen flex flex-col justify-center ">
+        <div className="text-white container mx-auto px-8 sm:max-w-[400px]">
           <h1 className="text-2xl font-bold mb-4">Iniciar sesión</h1>
 
           <form onSubmit={handleLogin} className="flex flex-col gap-y-4">

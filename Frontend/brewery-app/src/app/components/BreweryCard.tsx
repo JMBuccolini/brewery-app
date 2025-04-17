@@ -3,6 +3,7 @@ import LocationIcon from "../../../public/icons/location-icon";
 import PhoneIcon from "../../../public/icons/phone-icon";
 import { Brewery } from "../types/brewery";
 import CardBtn from "./CardBtn";
+import Image from "next/image";
 
 
 
@@ -15,7 +16,7 @@ export default function BreweryCard({data, hoverShadow} : {data:Brewery, hoverSh
     <h2 className="text-[20px] font-bold pb-4">{data.name}</h2>
     <div className="flex justify-center items-center gap-x-2 pb-4">
       <img
-        src={"imgs/nimbar.jpg"}
+        src={"/imgs/nimbar.jpg"}
         alt={data.name}
         className="w-[70px] h-[70px] rounded-full object-cover"
       />
