@@ -3,7 +3,7 @@ import LocationIcon from "../../../public/icons/location-icon";
 import PhoneIcon from "../../../public/icons/phone-icon";
 import { Brewery } from "../types/brewery";
 import CardBtn from "./CardBtn";
-import Image from "next/image";
+
 
 
 

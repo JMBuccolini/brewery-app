@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import LocationIcon from "../../../../../public/icons/location-icon";
 import PhoneIcon from "../../../../../public/icons/phone-icon";
 import UserReview from "@/app/components/UserReview";
-
+import DetailBtn from "@/app/components/DetailBtn";
+import TransportBtn from "@/app/components/TransportBtn";
 
 interface Brewery {
   id: string;
@@ -14,6 +15,8 @@ interface Brewery {
   state: string | null;
   country: string | null;
   phone: string | null;
+  longitude: string | null;
+  latitude: string | null;
 }
 
 export default async function BreweryDetail({
@@ -21,9 +24,8 @@ export default async function BreweryDetail({
 }: {
   params: { id: string };
 }) {
-  
   //await necesario para la v.15 de Nextjs, si no está se dispara un warnin porque en el futuro params será asíncrono
-  const { id } = await params; 
+  const { id } = await params;
 
   //llamado a la api con el id especifico de la cerveceria
   const res = await fetch(`https://api.openbrewerydb.org/v1/breweries/${id}`);
@@ -32,9 +34,9 @@ export default async function BreweryDetail({
   if (!res.ok) return notFound();
 
   const brewery: Brewery = await res.json();
+  console.log(brewery);
+  const fakeImages = new Array(5).fill(null);
 
-  const fakeImages = new Array(5).fill(null)
-  
   return (
     <div className="p-6 max-w-2xl mx-auto text-white">
       <h2 className="text-3xl font-bold mb-4">{brewery.name}</h2>
@@ -55,7 +57,7 @@ export default async function BreweryDetail({
         </div>
       </div>
       <div className="overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory px-4 mb-6 hide-scrollbar">
-        {fakeImages.map((item,i) => (
+        {fakeImages.map((item, i) => (
           <img
             key={i}
             src={`../imgs/detailCarruselImgs/${i + 1}.jpg`}
@@ -66,7 +68,16 @@ export default async function BreweryDetail({
       </div>
       <h2 className="text-3xl font-bold mb-8">Opiniones</h2>
       <div>
-        <UserReview id={id}/>
+        <UserReview id={id} />
+      </div>
+      <div className="flex flex-col gap-y-6">
+        <DetailBtn />
+        <TransportBtn
+          id={brewery.id}
+          latitude={brewery.latitude ?? "0"}
+          longitude={brewery.longitude ?? "0"}
+          name={brewery.name}
+        />
       </div>
     </div>
   );

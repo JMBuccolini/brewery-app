@@ -8,12 +8,14 @@ export default function Footer() {
   return (
     <footer className="flex justify-between items-baseline sm:hidden container px-6">
       <div className="flex flex-col justify-center items-center ">
-        <CalendarIcon />
-        <p className="text-[12px]">Calendario</p>
+        <Link
+        href={'/error'}
+        >
+          <CalendarIcon />
+          <p className="text-[12px]">Calendario</p>
+        </Link>
       </div>
-      <Link 
-      href={'/'}
-      className="flex flex-col justify-center items-center">
+      <Link href={"/"} className="flex flex-col justify-center items-center">
         <HomeIcon fill="white" />
         <p className="text-[12px]">Inicio</p>
       </Link>

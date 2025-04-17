@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { useBreweryComments } from "@/hooks/useBreweryComments";
 import toast from "react-hot-toast";
-import DetailBtn from "./DetailBtn";
-import TransportBtn from "./TransportBtn";
+
 
 export default function UserReview({id} : {id:string}) {
 
@@ -38,11 +37,7 @@ export default function UserReview({id} : {id:string}) {
           <p className="text-sm text-white leading-relaxed">{user.comment}</p>
         </motion.div>
       ))}
-        <div className="flex flex-col gap-y-6">
-          <DetailBtn/>
-          <TransportBtn/>
 
-        </div>
     </div>
   );
 }

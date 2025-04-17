@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
-import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
-import { useEffect, useState } from 'react';
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Polyline,
+  useMap,
+} from "react-leaflet";
+import { LatLngExpression } from "leaflet";
+import { useEffect, useState } from "react";
 
 interface Props {
   breweryCoords: LatLngExpression;
@@ -14,7 +20,10 @@ export default function MapView({ breweryCoords }: Props) {
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
-        const coords: LatLngExpression = [pos.coords.latitude, pos.coords.longitude];
+        const coords: LatLngExpression = [
+          pos.coords.latitude,
+          pos.coords.longitude,
+        ];
         setUserCoords(coords);
       });
     }
@@ -23,19 +32,32 @@ export default function MapView({ breweryCoords }: Props) {
   const center = userCoords || breweryCoords;
 
   return (
-    <MapContainer center={center} zoom={13} style={{ height: '400px', width: '70%',marginLeft:'15%', marginTop:'10%' }}>
-      <TileLayer
-        attribution='&copy; OpenStreetMap'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <div className="h-[450px] relative w-full rounded-lg bg-[#13132D] flex justify-center items-center">
+      <MapContainer
+        center={center}
+        zoom={13}
+        style={{
+          position:'absolute',
+          height: "400px",
+          width:'70%',
+          marginLeft:'15%',
+          top:'5%',
+          left:'0%'
+        }}
+      >
+        <TileLayer
+          attribution="&copy; OpenStreetMap"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <Marker position={breweryCoords} />
-      {userCoords && (
-        <>
-          <Marker position={userCoords} />
-          <Polyline positions={[userCoords, breweryCoords]} color="purple" />
-        </>
-      )}
-    </MapContainer>
+        <Marker position={breweryCoords} />
+        {userCoords && (
+          <>
+            <Marker position={userCoords} />
+            <Polyline positions={[userCoords, breweryCoords]} color="purple" />
+          </>
+        )}
+      </MapContainer>
+    </div>
   );
 }

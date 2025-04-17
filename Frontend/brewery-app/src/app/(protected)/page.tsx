@@ -1,14 +1,18 @@
-import resultsBrewery from "@/@mockapi/brews.json";
+"use client";
+import { useBreweries } from "@/hooks/useBreweries";
 import BreweryCarousel from "../components/BreweryCarousel";
 import BreweryCard from "../components/BreweryCard";
 import Snackbar from "../components/Snackbar";
 
 export default function Home() {
-  const breweries = resultsBrewery?.length > 0;
+  const { data: breweries, loading, error } = useBreweries();
 
-  const onlyCalifornia = resultsBrewery.filter(
+  const onlyCalifornia = breweries.filter(
     (item) => item.state === "California"
   );
+
+  if (loading) return <p className="text-white p-6">Cargando cervecerías...</p>;
+  if (error) return <p className="text-red-400 p-6">{error}</p>;
 
   return (
     <div className="flex flex-col">
@@ -23,13 +27,13 @@ export default function Home() {
           </h2>
           <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar">
             <div className="block sm:hidden">
-              {resultsBrewery.map((data) => (
+              {breweries.map((data) => (
                 <BreweryCard data={data} key={data.id} hoverShadow={false} />
               ))}
             </div>
-          <div className="hidden sm:block">
-            <BreweryCarousel data={resultsBrewery} />
-          </div>
+            <div className="hidden sm:block">
+              <BreweryCarousel data={breweries} />
+            </div>
           </div>
         </section>
         <section className="container px-3 mx-auto pb-6">
@@ -37,7 +41,7 @@ export default function Home() {
           <div className="overflow-x-auto whitespace-nowrap pr-4 pb-4 hide-scrollbar sm:ml-14">
             {breweries &&
               onlyCalifornia.map((data) => (
-                <BreweryCard data={data} key={data.id} hoverShadow={true}/>
+                <BreweryCard data={data} key={data.id} hoverShadow={true} />
               ))}
           </div>
         </section>

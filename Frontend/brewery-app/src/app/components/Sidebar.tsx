@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import LogoutIcon from "../../../public/icons/svgIcons/logoutIcon";
 import SidebarHomeIcon from "../../../public/icons/svgIcons/sidebarHomeIcon";
 import SidebarProfileIcon from "../../../public/icons/svgIcons/sidebarProfileIcon";
+import CalendarIcon from "../../../public/icons/calendar-icon";
 
 
 export default function Sidebar({ onClose }: { onClose: () => void }) {
@@ -22,7 +23,7 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
   
   return (
     <motion.div
-      className="fixed inset-0 bg-opacity-50 z-50 flex"
+      className="fixed inset-0 bg-opacity-50 z-50 flex z-9999"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -45,6 +46,18 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
             </Link>
           </li>
           <li>
+            <Link href="/" onClick={onClose} className="hover:underline flex items-center gap-x-3">
+            <SidebarHomeIcon/>
+              Ir a Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/error" onClick={onClose} className="hover:underline flex items-center gap-x-3">
+            <CalendarIcon/>
+              Ir a Calendario
+            </Link>
+          </li>
+          <li className="pt-24">
             
             <button
               onClick={() => {
@@ -56,12 +69,6 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
               <LogoutIcon/>
               Logout
             </button>
-          </li>
-          <li>
-            <Link href="/" onClick={onClose} className="hover:underline flex items-center gap-x-3">
-            <SidebarHomeIcon/>
-              Ir a Home
-            </Link>
           </li>
         </ul>
       </motion.div>

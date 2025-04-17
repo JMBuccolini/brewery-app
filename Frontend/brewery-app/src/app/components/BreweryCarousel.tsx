@@ -42,13 +42,17 @@ export default function BreweryCarousel({ data }: Props) {
       <div className="hidden md:flex justify-between items-center absolute top-[40%] w-full z-10">
         <button
           onClick={() => instanceRef.current?.prev()}
-          className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full"
+          disabled = {currentPage === 0 }
+          className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full disabled:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+
         >
           <LeftArrow/>
         </button>
         <button
+          disabled = {currentPage === pages.length - 1}
           onClick={() => instanceRef.current?.next()}
-          className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full"
+          className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full disabled:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+
         >
           <RightArrow/>
         </button>
