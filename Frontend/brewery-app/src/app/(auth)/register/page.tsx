@@ -144,7 +144,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] py-2 rounded text-white flex justify-center items-center gap-x-2"
+            className="cursor-pointer bg-gradient-to-r from-[#3540E8] to-[#E41AD6] py-2 rounded text-white flex justify-center items-center gap-x-2"
           >
             {loading ? (
               <span className="border-2 border-t-transparent border-white animate-spin w-5 h-5 rounded-full" />

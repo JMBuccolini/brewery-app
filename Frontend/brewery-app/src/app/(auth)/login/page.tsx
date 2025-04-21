@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import {motion} from "framer-motion";
 import Link from "next/link";
-
+import toast from "react-hot-toast";
 export default function LoginPage() {
   const router = useRouter();
   const { setToken } = useAuth();
@@ -38,6 +38,11 @@ export default function LoginPage() {
     setLoading(true);
     if (emailError || passwordError) {
       setFormError("Corregí los errores antes de continuar");
+      setLoading(false);
+      return;
+    }
+    if (email === '' || password=== '') {
+      toast.error("Completa todos los campos");
       setLoading(false);
       return;
     }
@@ -109,7 +114,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="bg-gradient-to-r from-[#3540E8] to-[#E41AD6] py-2 rounded text-white flex justify-center items-center gap-x-2"
+              className="cursor-pointer  bg-gradient-to-r from-[#3540E8] to-[#E41AD6] py-2 rounded text-white flex justify-center items-center gap-x-2"
             >
               {loading ? (
                 <span className="border-2 border-t-transparent border-white animate-spin w-5 h-5 rounded-full" />
