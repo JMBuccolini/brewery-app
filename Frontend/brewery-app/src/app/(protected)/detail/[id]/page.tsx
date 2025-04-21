@@ -34,7 +34,7 @@ export default async function BreweryDetail({
   if (!res.ok) return notFound();
 
   const brewery: Brewery = await res.json();
-  console.log(brewery);
+ 
   const fakeImages = new Array(5).fill(null);
 
   return (

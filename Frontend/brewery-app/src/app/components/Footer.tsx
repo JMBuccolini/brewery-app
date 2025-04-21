@@ -10,6 +10,7 @@ export default function Footer() {
       <div className="flex flex-col justify-center items-center ">
         <Link
         href={'/error'}
+        className="flex flex-col justify-center items-center"
         >
           <CalendarIcon />
           <p className="text-[12px]">Calendario</p>
