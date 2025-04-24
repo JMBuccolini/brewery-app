@@ -8,6 +8,7 @@ export interface ReservationEvent {
   title: string;
   start: Date;
   end: Date;
+  time: string;
 }
 
 export function useUserReservations() {
@@ -43,6 +44,7 @@ export function useUserReservations() {
             title: `${reserva.breweryName} (${reserva.people} pers)`,
             start: dateObj,
             end: endObj,
+            time: reserva.time,
           };
         });
 
