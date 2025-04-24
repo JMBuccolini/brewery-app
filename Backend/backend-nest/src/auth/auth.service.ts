@@ -35,7 +35,7 @@ export class AuthService {
 
   async login(loginDto: LoginAuthDto) {
     const { email, password } = loginDto;
-
+    console.log('Login attempt with email:', email); // Debugging line
     const user = await this.usersService.findByEmail(email);
 
     if (!user) {

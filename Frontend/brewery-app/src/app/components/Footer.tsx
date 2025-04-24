@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="flex justify-between items-baseline sm:hidden container px-6">
       <div className="flex flex-col justify-center items-center ">
         <Link
-        href={'/error'}
+        href={'/calendar'}
         className="flex flex-col justify-center items-center"
         >
           <CalendarIcon />

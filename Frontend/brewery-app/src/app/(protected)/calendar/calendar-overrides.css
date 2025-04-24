@@ -1,0 +1,35 @@
+/* Ajustes para modo oscuro en react-big-calendar */
+
+.rbc-calendar {
+    background-color: #13132D;
+    color: white;
+  }
+  
+  .rbc-toolbar {
+    background-color: #1d1d3b;
+    color: white;
+  }
+  
+  .rbc-off-range-bg {
+    background: #1a1a2e;
+  }
+  
+  .rbc-day-bg,
+  .rbc-header {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border-color: #333;
+  }
+  
+  .rbc-today {
+    background-color: #2e2e42 !important;
+  }
+  
+  .rbc-event {
+    background-color: #E41AD6;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  

@@ -34,7 +34,7 @@ export default async function BreweryDetail({
   if (!res.ok) return notFound();
 
   const brewery: Brewery = await res.json();
- 
+
   const fakeImages = new Array(5).fill(null);
 
   return (
@@ -71,7 +71,10 @@ export default async function BreweryDetail({
         <UserReview id={id} />
       </div>
       <div className="flex flex-col gap-y-6">
-        <DetailBtn />
+        <DetailBtn 
+          breweryName={brewery.name} 
+          breweryId={brewery.id} 
+        />
         <TransportBtn
           id={brewery.id}
           latitude={brewery.latitude ?? "0"}

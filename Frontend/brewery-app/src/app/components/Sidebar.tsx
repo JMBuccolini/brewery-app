@@ -52,7 +52,7 @@ export default function Sidebar({ onClose }: { onClose: () => void }) {
             </Link>
           </li>
           <li>
-            <Link href="/error" onClick={onClose} className="hover:underline flex items-center gap-x-3">
+            <Link href="/calendar" onClick={onClose} className="hover:underline flex items-center gap-x-3">
             <CalendarIcon/>
               Ir a Calendario
             </Link>
