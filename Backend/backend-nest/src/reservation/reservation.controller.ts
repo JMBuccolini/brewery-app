@@ -23,7 +23,7 @@ export class ReservationController {
     @Body()
     body: { breweryName: string; date: string; time: string; people: number },
   ) {
-    console.log('Usuario recibido en request.user:', userId);
+    
 
     return this.reservationService.createReservation({
       userId,
