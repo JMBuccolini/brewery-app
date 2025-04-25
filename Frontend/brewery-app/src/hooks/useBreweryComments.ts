@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { commentsSet } from "@/@mockapi/commentsSet.js";
 
 //Esta funcion hash genera un indice aleatorio para simular comentarios diferentes para cada cerveceria
+//En total hay tres bloques de comentarios diferentes generados con IA
 function hashStringToIndex(str: string, max: number) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {

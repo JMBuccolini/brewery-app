@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import Image from "next/image";
 export default function LoginPage() {
   const router = useRouter();
   const { setToken } = useAuth();
@@ -41,7 +42,7 @@ export default function LoginPage() {
       setLoading(false);
       return;
     }
-    if (email === '' || password=== '') {
+    if (email === "" || password === "") {
       toast.error("Completa todos los campos");
       setLoading(false);
       return;
@@ -78,7 +79,17 @@ export default function LoginPage() {
     >
       <div className="min-h-screen flex flex-col justify-center ">
         <div className="text-white container mx-auto px-8 sm:max-w-[400px]">
-          <h1 className="text-2xl font-bold mb-4">Iniciar sesión</h1>
+          <div className="flex">
+            <Image
+              src="/imgs/beer-53.png"
+              alt="Logo"
+              width={200}
+              height={200}
+              className="mx-auto mb-4"
+            />
+            <h2 className="text-4xl font-bold pt-6">Brewery App</h2>
+          </div>
+          <h2 className="text-2xl font-bold mb-4">Iniciar sesión</h2>
 
           <form onSubmit={handleLogin} className="flex flex-col gap-y-4">
             <div>

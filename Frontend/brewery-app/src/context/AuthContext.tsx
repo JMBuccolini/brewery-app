@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setTokenState] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-
+//Guardamos el token en el localStorage y lo leemos al iniciar la aplicacion
   const setToken = (token: string | null) => {
     if (token) {
       localStorage.setItem('token', token);
@@ -31,6 +31,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setTokenState(token);
   };
 
+  
+  //Si no hay token, redirigimos a la pagina de login
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) setTokenState(storedToken);

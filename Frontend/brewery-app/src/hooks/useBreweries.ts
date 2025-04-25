@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Brewery } from '@/app/types/brewery';
 
+//Este hook se encarga de hacer la llamada a la API y devolver los datos, el loading y el error
+
 export const useBreweries = () => {
   const [data, setData] = useState<Brewery[]>([]);
   const [loading, setLoading] = useState(true);

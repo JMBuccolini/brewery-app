@@ -10,7 +10,7 @@ export interface ReservationEvent {
   end: Date;
   time: string;
 }
-
+//Aqui obtenemos las reservas del usuario logueado, las formateamos para verlas en el calendario
 export function useUserReservations() {
   const { token } = useAuth();
   const [events, setEvents] = useState<ReservationEvent[]>([]);
