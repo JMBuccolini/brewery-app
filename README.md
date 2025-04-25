@@ -21,6 +21,7 @@ Este proyecto es una **prueba técnica** que simula una aplicación para explora
 - **React Leaflet** para mapa y distancia
 - **Keen Slider** para carruseles
 - **React Calendar** para reservas simuladas
+- **Dayjs** para manejar las fechas en el calendario
 
 ---
 
@@ -55,6 +56,12 @@ npm start
 
 > El backend corre en `http://localhost:5000`
 
+### Posibles errores en el backend
+ Puede darse un error en generated/prisma/schema.prisma 
+ porque las últimas versiones esperan un output, este a veces no se genera correctamente y hay que colocarlo de manera directa en el schema * output = "../generated/prisma" * 
+
+
+
 ---
 
 ### 3. Frontend — Next.js
@@ -74,19 +81,21 @@ npm run dev
 - ✅ Registro y login de usuarios con JWT
 - ✅ Carrusel con cervecerías (todas / California)
 - ✅ Detalle de cada cervecería
-- ✅ Distancia simulada y mapa con ubicación del usuario
+- ✅ Distancia y mapa con ubicación del usuario
 - ✅ Comentarios simulados para cada cervecería
 - ✅ Página de perfil editable
 - ✅ Calendario visual con fechas reservadas simuladas
+- ✅ Edición y eliminación de reservas 
+- ✅ Campana de notificaciones con las reservas
 - ✅ Animaciones sutiles y diseño responsive completo
 
 ---
 
 ## 📎 Notas adicionales
 
-- Las opiniones y reservas están simuladas, no se conectan con backend
-- La base de datos está en SQLite por simplicidad, ideal para revisión local
-- El diseño está adaptado a mobile y desktop
+- Las opiniones están simuladas desde un json, no se conectan con el backend
+- La base de datos está en SQLite por simplicidad utilizando Prisma
+- El diseño está adaptado a mobile y desktop pensando en mobile first
 
 ---
 

@@ -98,7 +98,7 @@ export default function ProfilePage() {
               e.preventDefault();
               setSaving(true);
 
-              // ✅ No hay cambios: no hacer request
+              // Si no hay cambios: no hacer request
               if (nameInput === user.name && passwordInput === "") {
                 setEditMode(false);
                 toast.success("No se detectaron cambios");

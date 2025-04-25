@@ -19,7 +19,7 @@ export class ReservationController {
   @UseGuards(JwtAuthGuard)
   @Post()
   create(
-    @AuthUser('id') userId: number,
+    @AuthUser('userId') userId: number,
     @Body()
     body: { breweryName: string; date: string; time: string; people: number },
   ) {
@@ -33,13 +33,13 @@ export class ReservationController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  findAllByUser(@AuthUser('id') userId: number) {
+  findAllByUser(@AuthUser('userId') userId: number) {
     return this.reservationService.getReservationsByUser(userId);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  delete(@Param('id') id: number, @AuthUser('id') userId: number) {
+  delete(@Param('id') id: number, @AuthUser('userId') userId: number) {
     return this.reservationService.deleteReservation(userId, id);
   }
 
@@ -47,7 +47,7 @@ export class ReservationController {
   @Put(':id')
   updateReservation(
     @Param('id') id: number,
-    @AuthUser('id') userId: number,
+    @AuthUser('userId') userId: number,
     @Body() dto: { date: string; time: string; people: number },
   ) {
     return this.reservationService.updateReservation(id, userId, dto);
